@@ -1,0 +1,40 @@
+---
+import { Picture } from "astro:assets";
+import protectoras from "assets/protectoras.jpg";
+import Link from "@components/ui/link.astro";
+---
+
+<main>
+  <div class="p-16 my-14 md:pt-12 md:pb-24 text-center border-b-2 border-gray-200">
+    <h2
+      class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+      ¿Quieres tener tu propio espacio?
+    </h2>
+    <p class="text-lg mt-4 px-10 text-slate-600">
+      Si tienes una protectora y quieres que tus adoptantes tenga un espacio para encontrar 
+      familia, este es el lugar adecuado. Puedes registrarte de forma gratuita y subir a los animales que 
+      opten a ser adoptados Todo de la formas más sencilla.
+    </p>
+    <div class="mt-6 flex justify-center sm:flex-row gap-3">
+      <Link
+        size="lg"
+        style="outline"
+        rel="noopener"
+        href="/register"
+        class="flex gap-1 items-center justify-center"
+        target="_blank">
+         Registrate
+      </Link>
+    </div>
+  </div>
+</main>
+
+<style>
+  h2 {
+    font-family: 'Dancing Script', cursive;
+  }
+
+  p {
+    font-family: 'YourSansFont', sans-serif;
+  }
+</style>

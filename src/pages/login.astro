@@ -1,0 +1,18 @@
+---
+import Loginform from "@components/login-form.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout title="Entrar">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Login</Fragment>
+      <Fragment slot="desc">Rellena los datos para entrar.</Fragment>
+    </Sectionhead>
+    <div class="grid md:grid-cols-1 gap-10 mx-auto max-w-sm mt-16">
+      <Loginform />
+    </div>
+  </Container>
+</Layout>

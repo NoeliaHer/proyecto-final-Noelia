@@ -1,0 +1,47 @@
+---
+import Headline2 from './Headline2.astro';
+const {title, subtitle, items } = Astro.props;
+
+interface Item {
+  content: string;
+}
+
+interface Props {
+  title2?: string;
+  tagline2?: string;
+  image?: string | { src: string; alt: string };
+}
+const { tagline2, title2, image } = Astro.props;
+
+---
+
+<fragment>
+    <div class="border mt-8 relative">
+        <Headline2 title={title} subtitle={subtitle}/>
+        <div class="absolute inset-0 z-0">
+            {image && typeof image === 'string' ? (
+            <img src={image} alt="Image" class="w-full h-full object-cover opacity-50" />
+            ) : (
+            image && <img src={image.src} alt={image.alt} class="w-full h-full object-cover opacity-20" />
+            )}
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6">
+            {items.map((item: Item, index: number) => (
+            <div class="p-2 flex items-center justify-start w-full m-2" key={index}>
+                <i class="fa fa-check text-blue-700 mr-6"></i>
+                <p class="text-left text-md text-gray-800 py-2">{item.content}</p>
+            </div>
+            ))}
+        </div>
+        <div class="relative z-10 text-center p-6 mt-8">
+            <h2 class="text-4xl text-gray-800 p-2 font-cursive">{title2}</h2>
+            <p class="text-lg text-gray-800 my-2">{tagline2}</p>
+        </div>
+    </div>
+  </fragment>
+
+<style>
+    .icon {
+        font-size: 32px;
+    }
+</style>

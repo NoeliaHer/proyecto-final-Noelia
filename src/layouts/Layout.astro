@@ -18,25 +18,25 @@ const resolvedImageWithDomain = new URL(
 const { title } = Astro.props;
 
 const makeTitle = title
-  ? title + " | " + "Astroship"
-  : "Astroship - Starter Template for Astro with Tailwind CSS";
+  ? title + " | " + "AdogtaMascota"
+  : "Adogta Mascota";
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-
+    <link rel="stylesheet" href="/src/styles/global.css">
     <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
     <SEO
       title={makeTitle}
-      description="Astroship is a starter website template for Astro built with TailwindCSS."
+      description="Protectoras de animales y adoptciones"
       canonical={canonicalURL}
       twitter={{
-        creator: "@surjithctly",
+        creator: "@noelia",
         site: "@web3templates",
         card: "summary_large_image",
       }}
@@ -44,19 +44,19 @@ const makeTitle = title
         basic: {
           url: canonicalURL,
           type: "website",
-          title: `Astroship - Starter Template for Astro`,
+          title: `Adogta Mascota`,
           image: resolvedImageWithDomain,
         },
         image: {
-          alt: "Astroship Homepage Screenshot",
+          alt: "Adopción de animales",
         },
       }}
     />
   </head>
   <body>
-    <Navbar />
+  <Navbar />
+  <div class="contenedor">
     <slot />
-    <Footer />
     <style is:global>
       /* Improve Page speed */
       /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
@@ -64,5 +64,16 @@ const makeTitle = title
         content-visibility: auto;
       }
     </style>
+  </div>
+  <Footer />
   </body>
 </html>
+
+<style>
+  .contenedor {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    /* font-family: 'YourSansFont', sans-serif; */
+  }
+
+</style>

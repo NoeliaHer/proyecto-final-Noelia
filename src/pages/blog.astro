@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import { Picture } from "astro:assets";
 import Layout from "@layouts/Layout.astro";
-import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
 
 // Filter blog entries with 'draft: false' & date before current date
@@ -16,12 +15,11 @@ publishedBlogEntries.sort(function (a, b) {
 });
 ---
 
-<Layout title="Blog">
-  <Container>
+<Layout title="Proyectos y campañas">
     <Sectionhead>
-      <Fragment slot="title">Our Blog</Fragment>
+      <Fragment slot="title">Proyectos y Campañas</Fragment>
       <Fragment slot="desc">
-        We write about building startups and thoughts going on our mind.
+        Aquí puedes consultar proyectos y campañas actuales.
       </Fragment>
     </Sectionhead>
     <main class="mt-16">
@@ -69,5 +67,4 @@ publishedBlogEntries.sort(function (a, b) {
         }
       </ul>
     </main>
-  </Container>
 </Layout>

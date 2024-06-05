@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=YourSansFont:wght@400;700&family=YourSerifFont:wght@400;700&family=YourMonoFont:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+
+/* iconos */
+.headline h1 {
+  margin-bottom: 0;
+}
+
+.icon-container {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.icon-container i {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+

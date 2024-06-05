@@ -3,15 +3,23 @@ import Container from "@components/container.astro";
 import Cta from "@components/cta.astro";
 import Features from "@components/features.astro";
 import Hero from "@components/hero.astro";
-import Logos from "@components/logos.astro";
+import Hero2 from "@components/hero2.astro";
 import Layout from "@layouts/Layout.astro";
+import Sectionhead from "@components/sectionhead.astro";
+
 ---
 
-<Layout title="">
+<Layout title="Inicio">
   <Container>
+    <Sectionhead>
+      <Fragment slot="title">Bienvenido</Fragment>
+      <Fragment slot="desc">
+        
+      </Fragment>
+    </Sectionhead>
     <Hero />
     <Features />
-    <Logos />
+    <Hero2 />
     <Cta />
   </Container>
 </Layout>

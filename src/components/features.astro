@@ -4,66 +4,60 @@ import { Icon } from "astro-icon";
 
 const features = [
   {
-    title: "Bring Your Own Framework",
+    title: "Tu propio espacio",
     description:
-      "Build your site using React, Svelte, Vue, Preact, web components, or just plain ol' HTML + JavaScript.",
+      "Construye tu propio espacio para visibilizar a los animales que se dan en adopción de forma rápida y sencilla.",
     icon: "bx:bxs-briefcase",
   },
   {
-    title: "100% Static HTML, No JS",
+    title: "100% Gratuito",
     description:
-      "Astro renders your entire page to static HTML, removing all JavaScript from your final build by default.",
+      "En este espacio todos soís bienvenidos. Puedes registrarte de forma gratuita como protectora.",
     icon: "bx:bxs-window-alt",
   },
   {
-    title: "On-Demand Components",
+    title: "Fácil e intuitiva",
     description:
-      "Need some JS? Astro can automatically hydrate interactive components when they become visible on the page.  ",
+      "La forma más fácil y sencilla de registrarse y publicar a los animales. Fácil contactar con nosotros para resolver tus dudas.",
     icon: "bx:bxs-data",
-  },
-  {
-    title: "Broad Integration",
-    description:
-      "Astro supports TypeScript, Scoped CSS, CSS Modules, Sass, Tailwind, Markdown, MDX, and any other npm packages.",
-    icon: "bx:bxs-bot",
-  },
-  {
-    title: "SEO Enabled",
-    description:
-      "Automatic sitemaps, RSS feeds, pagination and collections take the pain out of SEO and syndication. It just works!",
-    icon: "bx:bxs-file-find",
-  },
-  {
-    title: "Community",
-    description:
-      "Astro is an open source project powered by hundreds of contributors making thousands of individual contributions.",
-    icon: "bx:bxs-user",
   },
 ];
 ---
+<div class="p-10 relative border-t-2 border-b-2 border-gray-200">
+  <div class="opacity-20 absolute inset-0 z-0" style="background-image: url('/public/imagenes/fondo.jpg');"></div>
+  <div class="mt20 md:mt-0 relative z-10">
+    <h2 class="text-5xl lg:text-5xl font-bold lg:tracking-tight text-center">
+    Forma parte de este proyecto
+    </h2>
+    <p class="text-lg mt-4 text-slate-900 text-center">
+      Todo lo que necesitas saber.
+    </p>
+  </div>
 
-<div class="mt-16 md:mt-0">
-  <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
-    Everything you need to start a website
-  </h2>
-  <p class="text-lg mt-4 text-slate-600">
-    Astro comes batteries included. It takes the best parts of state-of-the-art
-    tools and adds its own innovations.
-  </p>
+  <div class="grid sm:grid-cols-2 md:grid-cols-3 m-14 gap-16">
+    {
+      features.map((item) => (
+        <div class="flex gap-4 items-start">
+          <div class="mt-1 bg-black rounded-full p-2 w-8 h-8 shrink-0">
+            <Icon class="text-white" name={item.icon} />
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg">{item.title}</h3>{" "}
+            <p class="text-slate-900 mt-2 leading-relaxed">{item.description}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
 </div>
 
-<div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16">
-  {
-    features.map((item) => (
-      <div class="flex gap-4 items-start">
-        <div class="mt-1 bg-black rounded-full  p-2 w-8 h-8 shrink-0">
-          <Icon class="text-white" name={item.icon} />
-        </div>
-        <div>
-          <h3 class="font-semibold text-lg">{item.title}</h3>{" "}
-          <p class="text-slate-500 mt-2 leading-relaxed">{item.description}</p>
-        </div>
-      </div>
-    ))
+
+<style>
+  h2 {
+    font-family: 'Dancing Script', cursive;
   }
-</div>
+
+  p {
+    font-family: 'YourSansFont', sans-serif;
+  }
+</style>
