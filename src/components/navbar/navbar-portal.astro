@@ -5,25 +5,17 @@ import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 
 
 const menuitems = [
-{
-    title: "Inicio",
-    path: "/",
+  {
+    title: "Mis datos",
+    path: "",
   },
   {
-    title: "Campañas",
-    path: "/blog",
+    title: "Subir/Eliminar",
+    path: "",
   },
   {
-    title: "Colaborar",
-    path: "/colaborar",
-  },
-  {
-    title: "Sobre mí",
-    path: "/about",
-  },
-  {
-    title: "Contacto",
-    path: "/contact",
+    title: "Ayuda",
+    path: "",
   },
 ];
 ---
@@ -51,16 +43,12 @@ const menuitems = [
               </li>
             ))}
           </ul>
-          <div class="lg:hidden flex items-center mt-3 gap-4">
-            <Link href="/login" class="link-acceder" style="muted" block size="md">Acceder</Link>
-            <Link href="/register" size="md" block>Registrar</Link>
-          </div>
+        
         </MenuItems>
     </Astronav>
     <div>
       <div class="hidden lg:flex items-center gap-4">
-        <a href="/login">Acceder</a>
-        <Link href="/register" size="md">Registrar</Link>
+        <Link href="/" size="md">Cerrar Sesión</Link>
       </div>
     </div>
   </div>

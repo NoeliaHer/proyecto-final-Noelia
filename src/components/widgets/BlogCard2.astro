@@ -1,0 +1,21 @@
+---
+// BlogCard.astro
+export interface BlogCardProps {
+  title: string;
+  image: string;
+  link: string;
+}
+const { title, image, link  } = Astro.props;
+---
+
+<div class="container mx-auto flex justify-center">
+  <div class="mx-4 border-2 rounded-lg mb-2">
+    <a href={link} target="_blank">
+        <img src={image} alt={title} class="object-cover h-48 md:h-64 lg:h-48 mb-2" />
+        <div class="p-4">
+          <h2 class="text-center text-lg text-blue-800 p-2">{title}</h2>
+        </div>
+    </a>
+  </div>
+</div>
+

@@ -1,0 +1,47 @@
+---
+import LayoutPortal from "@layouts/layoutPortal.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import BlogCard2 from "@components/widgets/BlogCard2.astro";
+
+
+const blogPosts = [
+  {
+    title: "Mantenimiento Web: La clave del exito",
+    image: "/public/images/mantenimiento_web_profesional.jpg",
+    link: "/blog/mantenimientoweb"
+  },
+  {
+    title: "Experiencia móvil perfecta: Mantenimiento para todos los dispositivos",
+    image: "/public/images/experiencia_movil.jpg",
+    link: "#"
+  },
+  {
+    title: "La importancia de una página web profesional para tu nuevo negocio",
+    image: "https://images.unsplash.com/photo-1599423300746-b62533397364?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80",
+    link: "#"
+  },
+];
+---
+
+<LayoutPortal>
+    <Sectionhead>
+      <Fragment slot="title">Bienvenido Protectora</Fragment>
+      <Fragment slot="desc">
+        Espacio personal
+      </Fragment>
+    </Sectionhead>
+    <main class="mt-16">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mx-10">
+				{blogPosts.map((post) => (
+					<div class="mb-4">
+						<BlogCard2 
+							title={post.title}
+							image={post.image}
+							link={post.link}
+						/>
+					</div>
+				))}
+			</div>
+    </main>
+  </LayoutPortal>
+
