@@ -1,64 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Nav from '../../components/Nav.astro';
-import ContactForm from '../../components/ContactForm.astro';
-import FAQ from '../../components/FAQ.astro';
-import FeaturesBlog from '../../components/FeaturesBlog.astro';
 
-const faqItems = [
-  {
-    question: "¿Con qué frecuencia debo realizar el mantenimiento web?",
-    answer: "Se recomienda realizar el mantenimiento web al menos una vez al mes para garantizar un rendimiento óptimo."
-  },
-  {
-    question: "¿Puedo hacer el mantenimiento web por mi cuenta o debo contratar a un profesional?",
-    answer: "Puedes realizar algunas tareas de mantenimiento por tu cuenta, pero es recomendable contar con un profesional para tareas más técnicas y críticas."
-  },
-  {
-    question: "¿Qué sucede si no realizo el mantenimiento web?",
-    answer: "Si no realizas el mantenimiento web, tu sitio puede volverse lento, inseguro y propenso a errores técnicos, lo que puede afectar negativamente la experiencia del usuario y el SEO."
-  },
-  {
-    question: "¿Cuánto tiempo lleva el mantenimiento web?",
-    answer: "El tiempo necesario para el mantenimiento web varía según la complejidad del sitio web y las tareas requeridas. Puede tomar desde unas pocas horas hasta varios días."
-  },
-  {
-    question: "¿Cómo puedo proteger mi sitio web de ataques cibernéticos?",
-    answer: "Para proteger tu sitio web de ataques cibernéticos, asegúrate de utilizar medidas de seguridad robustas, como firewalls y certificados SSL, y mantén tu software actualizado."
-  }
-];
-
-const features = [
-  {
-    image: "https://img.icons8.com/ios-filled/50/000000/cursor.png", // Icono puntero ratón
-    title: "Mejora de la Experiencia del Usuario (UX)",
-    description: "Un sitio web que funciona sin problemas, carga rápidamente y no presenta errores proporciona una experiencia positiva a los visitantes. Esto aumenta la retención de usuarios y fomenta la lealtad a la marca."
-  },
-  {
-    image: "https://img.icons8.com/ios-filled/50/000000/google-logo.png", // Icono G de Google
-    title: "Optimización de SEO",
-    description: "Los motores de búsqueda favorecen los sitios web bien mantenidos. Actualizar contenido, corregir enlaces rotos y garantizar una estructura técnica sólida puede mejorar su clasificación en los resultados de búsqueda."
-  },
-  {
-    image: "https://img.icons8.com/ios-filled/50/000000/security-checked.png", // Icono de seguridad
-    title: "Seguridad en Línea",
-    description: "El mantenimiento web incluye la protección contra amenazas cibernéticas. Actualizar regularmente los sistemas y las medidas de seguridad reduce el riesgo de ataques y la pérdida de datos."
-  },
-  {
-    image: "https://img.icons8.com/ios-filled/50/000000/loading-circle.png", // Icono de un círculo cargando
-    title: "Carga Rápida",
-    description: "Los visitantes en línea esperan que las páginas se carguen rápidamente. La optimización de velocidad es crucial para reducir las tasas de rebote y mejorar la retención de usuarios."
-  },
-  {
-    image: "https://img.icons8.com/ios-filled/50/000000/checkmark.png", // Icono check blanco con fondo azul
-    title: "Contenido Actualizado",
-    description: "Mantener el contenido fresco y relevante atrae a nuevos visitantes y mantiene interesados a los existentes. Esto también demuestra autoridad en su nicho."
-  },
-];
 ---
 
 <Layout title="Mantenimiento Web: La Clave del Éxito">
-  <Nav />
   <section class="main-content">
     <h1 class="title">Mantenimiento Web: La Clave del Éxito</h1>
     <p class="subtitle">La presencia online sólida es esencial para el éxito de cualquier empresa o proyecto. La creación y el mantenimiento de un sitio web bien optimizado son fundamentales para atraer y retener a los visitantes. En este artículo, exploraremos la importancia del mantenimiento web y cómo puede marcar la diferencia en la experiencia del usuario y el rendimiento web.</p>
@@ -71,14 +16,6 @@ const features = [
         </div>
       </div>
     </div>
-    
-    <FeaturesBlog features={features} />
-    
-    <div class="additional-text">
-      <p>El mantenimiento web es esencial para el éxito continuo. Garantiza que su sitio web funcione sin problemas, proporcione una experiencia positiva a los usuarios y se destaque en los motores de búsqueda. No subestime la importancia de mantener su presencia online en su mejor forma.</p>
-    </div>
-    
-    <FAQ items={faqItems} />
   </section>
 </Layout>
 
