@@ -4,18 +4,27 @@ export interface BlogCardProps {
   title: string;
   image: string;
   link: string;
+  subtitle?: string;
+  edad?: string
 }
-const { title, image, link  } = Astro.props;
+const { title, image, link, subtitle, edad  } = Astro.props;
 ---
 
-<div class="container mx-auto flex justify-center">
-  <div class="mx-4 border-b mb-2">
+<div class="container mx-auto flex justify-center mb-8 border-2">
+  <div class="mx-4 mb-2">
     <a href={link} target="_blank">
         <img src={image} alt={title} class="rounded-lg object-cover h-48 md:h-64 lg:h-48 mb-2" />
-        <div class="p-4">
-          <h2 class="text-lg text-blue-800 p-2">{title}</h2>
+        <div class="pb-4">
+          <h2 class="text-4xl text-blue-800  text-center">{title}</h2>
+          <p class="text-lg text-blue-800 p-2 text-center">{edad}</p>
+          <p class="text-lg text-blue-800 text-center">{subtitle}</p>
         </div>
     </a>
+    <div class="flex justify-center">
+      <a href={link} target="_blank" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+        Adoptar
+      </a>
+    </div>
   </div>
 </div>
 

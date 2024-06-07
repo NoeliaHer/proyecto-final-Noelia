@@ -1,0 +1,154 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import Card from "@components/widgets/Card.astro";
+
+
+const listadoCompleto = [
+  {
+    title: "Lucas",
+    image: "/public/animales/lucas.jpg",
+    link: "",
+    province: "Madrid",
+    edad: "1 año"
+  },
+  {
+    title: "Luna",
+    image: "/public/animales/luna.jpg",
+    link: "#",
+    province: "Valencia",
+    edad: "4 años"
+  },
+  {
+    title: "Sasha",
+    image: "/public/animales/sasha.jpg",
+    link: "#",
+    province: "Madrid",
+    edad: "2 años"
+
+  },
+  {
+    title: "Toby",
+    image: "/public/animales/toby.jpg",
+    link: "#",
+    province: "Barcelona",
+    edad: "10 años"
+  },
+];
+
+function renderProtectora(animales) {
+  return `
+    <div class="mb-4">
+      <a href="${animales.link}" target="_blank">
+        <img src="${animales.image}" alt="${animales.title}" class="rounded-lg object-cover h-48 md:h-64 lg:h-48 mb-2" />
+        <div class="pb-4">
+          <h2 class="text-lg text-blue-800 text-center">${animales.title}</h2>
+          <p class="text-lg text-blue-800 text-center p-2">${animales.edad}</p>
+          <p class="text-lg text-blue-800 text-center">${animales.province}</p>
+        </div>
+      </a>
+    </div>
+  `;
+}
+
+---
+
+<Layout title="Animales">
+  <Sectionhead>
+    <Fragment slot="title">Animales disponibles</Fragment>
+    <Fragment slot="desc">
+      Aquí puedes consultar todos nuestros amigos de cuatro patas que buscan familia.
+    </Fragment>
+  </Sectionhead>
+  <main class="mt-16">
+    <div class="mx-10">
+      <input
+        type="text"
+        placeholder="Buscar por provincia..."
+        class="w-full px-4 py-2 border-2 rounded-md outline-none focus:ring-2 focus:ring-gray-400"
+        id="searchInput"
+      />
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mx-10 mt-6" id="filteredResults">
+      {listadoCompleto.map((animales) => (
+        <div class="mb-4" id={`protectora-${animales.title}`}>
+          <Card
+            title={animales.title}
+            image={animales.image}
+            link={animales.link}
+            subtitle={animales.province}
+            edad={animales.edad}
+          />
+        </div>
+      ))}
+    </div>
+  </main>
+</Layout>
+
+<script>
+  const listadoCompleto = [
+    {
+      title: "Lucas",
+      image: "/public/animales/lucas.jpg",
+      link: "",
+      province: "Madrid",
+      edad: "1 año"
+    },
+    {
+      title: "Luna",
+      image: "/public/animales/luna.jpg",
+      link: "#",
+      province: "Valencia",
+      edad: "4 años"
+    },
+    {
+      title: "Sasha",
+      image: "/public/animales/sasha.jpg",
+      link: "#",
+      province: "Madrid",
+      edad: "2 años"
+
+    },
+    {
+      title: "Toby",
+      image: "/public/animales/toby.jpg",
+      link: "#",
+      province: "Barcelona",
+      edad: "10 años"
+
+    },
+  ];
+
+  const searchInput = document.getElementById("searchInput");
+  const filteredResults = document.getElementById("filteredResults");
+
+  searchInput.addEventListener("input", function () {
+    const searchTerm = this.value.trim().toLowerCase();
+    const filteredList = filterList(searchTerm);
+
+    filteredResults.innerHTML = filteredList.map(renderProtectora).join('');
+  });
+
+  function filterList(searchTerm) {
+    return listadoCompleto.filter(protectora =>
+      protectora.province.toLowerCase().includes(searchTerm)
+    );
+  }
+
+  function renderProtectora(protectora) {
+    return `
+    <div class="container mx-auto flex justify-center">
+      <div class="mx-4 border-2 rounded-lg mb-2">
+        <a href="${protectora.link}" target="_blank">
+          <img src="${protectora.image}" alt="${protectora.title}" class="object-cover h-48 md:h-64 lg:h-48 mb-2" />
+          <div class="pb-4">
+            <h2 class="text-center text-4xl text-blue-800">${protectora.title}</h2>
+            <p class="text-lg text-blue-800 p-2 text-center">${protectora.edad}</p>
+            <p class="text-lg text-blue-800 text-center">${protectora.province}</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    `;
+  }
+</script>
