@@ -1,0 +1,25 @@
+---
+// src/components/AddItem.astro
+let name = '';
+
+const handleSubmit = async (event) => {
+  event.preventDefault();
+  await fetch('http://localhost:3001/items', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ name }),
+  });
+  name = ''; // Reset input after submission
+};
+---
+
+<form onSubmit={handleSubmit}>
+  <input
+    type="text"
+    value={name}
+    onInput={(event) => name = event.target.value}
+  />
+  <button type="submit">Add Item</button>
+</form>

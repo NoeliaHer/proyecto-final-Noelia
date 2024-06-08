@@ -1,0 +1,50 @@
+---
+// src/components/ItemList.astro
+
+// Define una lista de elementos
+let items = [
+  { id: 1, name: 'Item 1', age: 25, province: 'Province 1' },
+  { id: 2, name: 'Item 2', age: 30, province: 'Province 2' },
+  { id: 3, name: 'Item 3', age: 35, province: 'Province 3' },
+  { id: 4, name: 'Item 4', age: 40, province: 'Province 4' },
+];
+
+// Función para eliminar un elemento de la lista
+const deleteItem = (id) => {
+  console.log('Eliminando item con ID:', id);
+  // Encontrar el índice del elemento con el ID correspondiente
+  const index = items.findIndex(item => item.id === id);
+  // Eliminar el elemento de la lista
+  items.splice(index, 1);
+};
+
+// Función para editar un elemento de la lista
+const editItem = (id) => {
+  console.log('Editando item con ID:', id);
+};
+---
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Province</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {items.map((item) => (
+      <tr key={item.id}>
+        <td>{item.id}</td>
+        <td>{item.name}</td>
+        <td>{item.age}</td>
+        <td>{item.province}</td>
+        <td>
+          <button type="button" on:click={() => editItem(item.id)}>Edit</button>
+          <button type="button" on:click={() => deleteItem(item.id)}>Delete</button>
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>

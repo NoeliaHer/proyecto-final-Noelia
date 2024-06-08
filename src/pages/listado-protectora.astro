@@ -30,7 +30,8 @@ function renderProtectora(protectora) {
       <a href="${protectora.link}" target="_blank">
         <img src="${protectora.image}" alt="${protectora.title}" class="rounded-lg object-cover h-48 md:h-64 lg:h-48 mb-2" />
         <div class="p-4">
-          <h2 class="text-lg text-blue-800 p-2">${protectora.title}</h2>
+          <h2 class="text-4xl text-blue-800 p-2">${protectora.title}</h2>
+          <p class="text-center text-xl text-blue-800 p-2">${protectora.province}</p>
         </div>
       </a>
     </div>
@@ -62,6 +63,7 @@ function renderProtectora(protectora) {
             title={protectora.title}
             image={protectora.image}
             link={protectora.link}
+            province={protectora.province}
           />
         </div>
       ))}
@@ -114,7 +116,8 @@ function renderProtectora(protectora) {
         <a href="${protectora.link}" target="_blank">
           <img src="${protectora.image}" alt="${protectora.title}" class="object-cover h-48 md:h-64 lg:h-48 mb-2" />
           <div class="p-4">
-            <h2 class="text-center text-lg text-blue-800 p-2">${protectora.title}</h2>
+            <h2 class="text-center text-4xl text-blue-800 p-2">${protectora.title}</h2>
+            <p class="text-center text-xl text-blue-800 p-2">${protectora.province}</p>
           </div>
         </a>
       </div>
