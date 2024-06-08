@@ -116,7 +116,7 @@ import LayoutPortal from "../layouts/layoutPortal.astro";
           <td class="border px-4 py-2">${item.id}</td>
           <td class="border px-4 py-2">${item.nombre}</td>
           <td class="border px-4 py-2">${item.precio}</td>
-          <td class="border px-4 py-2"><img src="public/animales/${item.imagen}" alt="Imagen de ${item.nombre}" class="h-16 w-auto"></td>
+          <td class="border px-4 py-2"><img src="/animales/${item.imagen}" alt="Imagen de ${item.nombre}" class="h-16 w-auto"></td>
           <td class="border px-4 py-2">${item.raza}</td>
           <td class="border px-4 py-2">${item.descripcion}</td>
           <td class="border px-4 py-2">${item.fecha_entrada}</td>
@@ -173,7 +173,5 @@ import LayoutPortal from "../layouts/layoutPortal.astro";
       }
     });
   </script>
-</body>
-</html>
 
 </LayoutPortal>
