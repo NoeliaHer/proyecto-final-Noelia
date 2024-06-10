@@ -94,7 +94,7 @@ import LayoutPortal from "../layouts/layoutPortal.astro";
         if (nuevoNombre && !isNaN(nuevoPrecio) && nuevaImagen && nuevaRaza && nuevaDescripcion && nuevaFechaEntrada && nuevaEspecie) {
           items[index].nombre = nuevoNombre;
           items[index].precio = nuevoPrecio;
-          items[index].imagen = nuevaImagen + ".jpg"; // Suponiendo que las imágenes tienen extensión .jpg
+          items[index].imagen = nuevaImagen + ".jpg";
           items[index].raza = nuevaRaza;
           items[index].descripcion = nuevaDescripcion;
           items[index].fecha_entrada = nuevaFechaEntrada;
@@ -158,7 +158,7 @@ import LayoutPortal from "../layouts/layoutPortal.astro";
       const especie = document.getElementById('especie').value;
       if (nombre && !isNaN(precio) && imagen && raza && descripcion && fechaEntrada && especie) {
         const nuevoId = items.length + 1;
-        const nuevoItem = { id: nuevoId, nombre: nombre, precio: precio, imagen: imagen + ".jpg", raza: raza, descripcion: descripcion, fecha_entrada: fechaEntrada, especie: especie }; // Suponiendo que las imágenes tienen extensión .jpg
+        const nuevoItem = { id: nuevoId, nombre: nombre, precio: precio, imagen: imagen + ".jpg", raza: raza, descripcion: descripcion, fecha_entrada: fechaEntrada, especie: especie };
         items.push(nuevoItem);
         actualizarTabla();
         document.getElementById('nombre').value = "";

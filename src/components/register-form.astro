@@ -16,7 +16,7 @@ import Button from "./ui/button.astro";
   <div class="mb-5">
     <input
       type="text"
-      placeholder="Nombre de la protectora"
+      placeholder="Nombre de usuario o protectora"
       required
       class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-none focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
       name="name"
@@ -28,20 +28,19 @@ import Button from "./ui/button.astro";
   <div class="mb-5">
     <input
       type="text"
-      placeholder="CIF"
+      placeholder="DNI"
       required
       class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-none focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
       name="cif"
     />
     <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
-      Porfavor introduce el cif
+      Porfavor introduce el DNI.
     </div>
   </div>
   <div class="mb-5">
-    <label for="email_address" class="sr-only">Email</label><input
-      id="email_address"
+    <input
       type="email"
-      placeholder="Email Address"
+      placeholder="Email"
       name="email"
       required
       class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-none focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
@@ -51,6 +50,30 @@ import Button from "./ui/button.astro";
     </div>
     <div class="invalid-feedback text-red-400 text-sm mt-1">
       Porfavor introduce un email válido.
+    </div>
+  </div>
+  <div class="mb-5">
+    <input
+      type="text"
+      placeholder="Teléfono"
+      required
+      class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-none focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
+      name="telefono"
+    />
+    <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
+      Porfavor introduce el teléfono.
+    </div>
+  </div>
+  <div class="mb-5">
+    <input
+      type="text"
+      placeholder="Dirección"
+      required
+      class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-none focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
+      name="direccion"
+    />
+    <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
+      Porfavor introduce la dirección.
     </div>
   </div>
   <div class="mb-5">
@@ -74,7 +97,29 @@ import Button from "./ui/button.astro";
       name="provincia"
     />
     <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
-      Porfavor introduce la provincia.
+      Porfavor introduce la contraseña.
+    </div>
+  </div>
+  <div class="mb-5">
+    <input
+      type="text"
+      placeholder="Contraseña"
+      required
+      class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-none focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
+      name="contraseña"
+    />
+    <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
+      Porfavor introduce la contraseña.
+    </div>
+  </div>
+  <div class="mb-5">
+    <label for="tipo">Tipo:</label><br>
+    <select id="tipo" name="tipo" required>
+      <option value="usuario">Usuario</option>
+      <option value="protectora">Protectora</option>
+    </select><br>
+    <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
+      Porfavor selecciona el tipo.
     </div>
   </div>
  
