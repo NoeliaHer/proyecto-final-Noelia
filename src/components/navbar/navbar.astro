@@ -18,12 +18,12 @@ const menuitems = [
     path: "/colaborar",
   },
   {
-    title: "Sobre mí",
-    path: "/about",
-  },
-  {
     title: "Contacto",
     path: "/contact",
+  },
+  {
+    title: "Suscripcion",
+    path: "/membresia",
   },
 ];
 ---
@@ -45,7 +45,7 @@ const menuitems = [
           <ul class="flex flex-col lg:flex-row lg:gap-3">
             {menuitems.map(item => (
               <li>
-                <a href={item.path} class={"flex lg:px-3 py-2 items-center text-gray-600 hover:text-black " + (item.title === "Colaborar" ? "bg-green-500 text-white rounded-md px-2 py-2" : "")}>
+                <a href={item.path} class={"flex lg:px-3 py-2 items-center text-gray-600 hover:text-black " + (item.title === "Colaborar" ? "bg-green-400 text-white rounded-md px-2 py-2" : "")}>
                   <span>{item.title}</span>
                 </a>
               </li>

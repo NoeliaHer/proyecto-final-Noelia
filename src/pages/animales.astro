@@ -1,8 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Sectionhead from "@components/sectionhead.astro";
-import Card from "@components/widgets/Card.astro";
-
+import Card from "@components/widgets/Card.astro";  // Asegúrate de que Card.astro es el componente correcto a importar
 
 const listadoCompleto = [
   {
@@ -10,29 +9,32 @@ const listadoCompleto = [
     image: "/animales/lucas.jpg",
     link: "",
     province: "Madrid",
-    edad: "1 año"
+    edad: "1 año",
+    subtitle2: "disponible"  // Corregido de estado a subtitle2 según la interfaz de BlogCardProps
   },
   {
     title: "Luna",
     image: "/animales/luna.jpg",
     link: "#",
     province: "Valencia",
-    edad: "4 años"
+    edad: "4 años",
+    subtitle2: "disponible"  // Corregido de estado a subtitle2 según la interfaz de BlogCardProps
   },
   {
     title: "Sasha",
     image: "/animales/sasha.jpg",
     link: "#",
     province: "Madrid",
-    edad: "2 años"
-
+    edad: "2 años",
+    subtitle2: "disponible"  // Corregido de estado a subtitle2 según la interfaz de BlogCardProps
   },
   {
     title: "Toby",
     image: "/animales/toby.jpg",
     link: "#",
     province: "Barcelona",
-    edad: "10 años"
+    edad: "10 años",
+    subtitle2: "adoptado"  // Corregido de estado a subtitle2 según la interfaz de BlogCardProps
   },
 ];
 
@@ -45,8 +47,14 @@ function renderProtectora(animales) {
           <h2 class="text-lg text-blue-800 text-center">${animales.title}</h2>
           <p class="text-lg text-blue-800 text-center p-2">${animales.edad}</p>
           <p class="text-lg text-blue-800 text-center">${animales.province}</p>
+          <p class="text-lg text-green-800 text-center">${animales.subtitle2}</p>
         </div>
       </a>
+      <div class="flex justify-center">
+        <a href="${animales.link}" target="_blank" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+          Solicitar
+        </a>
+      </div>
     </div>
   `;
 }
@@ -78,6 +86,7 @@ function renderProtectora(animales) {
             link={animales.link}
             subtitle={animales.province}
             edad={animales.edad}
+            subtitle2={animales.subtitle2}  // Asegúrate de pasar la propiedad correcta según Card.astro
           />
         </div>
       ))}
@@ -92,30 +101,32 @@ function renderProtectora(animales) {
       image: "/animales/lucas.jpg",
       link: "",
       province: "Madrid",
-      edad: "1 año"
+      edad: "1 año",
+      estado: "disponible"
     },
     {
       title: "Luna",
       image: "/animales/luna.jpg",
       link: "#",
       province: "Valencia",
-      edad: "4 años"
+      edad: "4 años",
+      estado: "disponible"
     },
     {
       title: "Sasha",
       image: "/animales/sasha.jpg",
       link: "#",
       province: "Madrid",
-      edad: "2 años"
-
+      edad: "2 años",
+      estado: "disponible"
     },
     {
       title: "Toby",
       image: "/animales/toby.jpg",
       link: "#",
       province: "Barcelona",
-      edad: "10 años"
-
+      edad: "10 años",
+      estado: "adoptado"
     },
   ];
 
@@ -145,8 +156,14 @@ function renderProtectora(animales) {
             <h2 class="text-center text-4xl text-blue-800">${protectora.title}</h2>
             <p class="text-lg text-blue-800 p-2 text-center">${protectora.edad}</p>
             <p class="text-lg text-blue-800 text-center">${protectora.province}</p>
+            <p class="text-lg text-green-800 text-center">${protectora.estado}</p>
           </div>
         </a>
+        <div class="flex justify-center">
+          <a href="${protectora.link}" target="_blank" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+            Solicitar
+          </a>
+        </div>
       </div>
     </div>
     `;

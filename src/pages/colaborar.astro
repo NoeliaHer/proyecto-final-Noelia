@@ -2,22 +2,41 @@
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
-
-const pricing = [
-  {
-   
-  },
-];
 ---
 
 <Layout title="Donar">
   <Container>
     <Sectionhead>
-      <Fragment slot="title">¿Quieres colaborar?</Fragment>
+      <Fragment slot="title">Donaciones</Fragment>
       <Fragment slot="desc">
-        Todo el dinero recaudado irá para el mantenimiento y mejora de la aplicación y para ayudar a las protectoras. Gracias.
       </Fragment>
     </Sectionhead>
-    </div>
+
+    <section class="mt-8 text-center">
+      <h2 class="text-2xl font-bold mb-4">Cómo donar a través de PayPal</h2>
+      <p class="text-lg mb-4">
+        Puedes hacer una donación a través de PayPal de manera sencilla y segura. Sigue estos pasos:
+      </p>
+      <ol class="list-decimal list-inside">
+        <li class="mb-2">
+          Inicia sesión en tu cuenta de PayPal o crea una cuenta si no tienes una.
+        </li>
+        <li class="mb-2">
+          Dirígete a la sección de envío de dinero o donaciones.
+        </li>
+        <li class="mb-2">
+          Ingresa la dirección de correo electrónico asociada con nuestra cuenta PayPal: <strong>ejemplo@dominio.com</strong>.
+        </li>
+        <li class="mb-2">
+          Especifica el monto que deseas donar y selecciona la divisa.
+        </li>
+        <li class="mb-2">
+          Confirma la transacción y recibirás una confirmación de donación por correo electrónico.
+        </li>
+      </ol>
+      <p class="text-lg mt-4">
+        <a href="https://www.paypal.com" class="text-blue-500 underline" target="_blank" rel="noopener noreferrer">Visita PayPal</a> para más información sobre cómo realizar una donación.
+      </p>
+    </section>
   </Container>
 </Layout>

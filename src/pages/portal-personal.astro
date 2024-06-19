@@ -5,6 +5,7 @@ import LayoutPortal from "../layouts/layoutPortal.astro";
 <LayoutPortal title="Listado">
   <div class="max-w-6xl m-8">
     <h1 class="text-3xl font-bold mb-8">Listado de animales</h1>
+    <!-- Formulario para agregar un nuevo animal -->
     <form id="formulario" class="mb-8 w-full">
       <div class="flex mb-4">
         <div class="w-1/2 mr-4">
@@ -42,6 +43,8 @@ import LayoutPortal from "../layouts/layoutPortal.astro";
       </div>
       <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Agregar</button>
     </form>
+    
+    <!-- Tabla para mostrar el listado de animales -->
     <div class="w-full">
       <table id="tabla" class="w-full bg-white shadow-md rounded">
         <thead class="bg-indigo-500 text-white">
@@ -54,6 +57,7 @@ import LayoutPortal from "../layouts/layoutPortal.astro";
             <th class="px-4 py-2">Descripción</th>
             <th class="px-4 py-2">Fecha de Entrada</th>
             <th class="px-4 py-2">Especie</th>
+            <th class="px-4 py-2">Estado</th>
             <th class="px-4 py-2">Acciones</th>
           </tr>
         </thead>
@@ -65,13 +69,13 @@ import LayoutPortal from "../layouts/layoutPortal.astro";
   </div>
 
   <script>
-    // Define una lista de objetos que representarán los datos de la tabla
+    // Datos iniciales de prueba para la tabla
     let items = [
-      { id: 1, nombre: "Lucas", precio: 100, imagen: "lucas.jpg", raza: "Labrador", descripcion: "Perro muy activo y juguetón", fecha_entrada: "2024-06-10", especie: "Perro" },
-      { id: 2, nombre: "Sasha", precio: 150, imagen: "sasha.jpg", raza: "Maine Coon", descripcion: "Gato tranquilo y cariñoso", fecha_entrada: "2024-06-10", especie: "Gato" },
+      { id: 1, nombre: "Lucas", precio: 100, imagen: "lucas.jpg", raza: "Labrador", descripcion: "Perro muy activo y juguetón", fecha_entrada: "2024-06-10", especie: "Perro", estado: "Disponible" },
+      { id: 2, nombre: "Sasha", precio: 150, imagen: "sasha.jpg", raza: "Maine Coon", descripcion: "Gato tranquilo y cariñoso", fecha_entrada: "2024-06-10", especie: "Gato", estado: "Reservado" },
     ];
 
-    // Función para eliminar un ítem de la lista
+    // Función para eliminar un elemento de la lista
     const eliminarItem = (id) => {
       const index = items.findIndex((item) => item.id === id);
       if (index !== -1) {
@@ -80,18 +84,19 @@ import LayoutPortal from "../layouts/layoutPortal.astro";
       }
     };
 
-    // Función para editar un ítem de la lista
+    // Función para editar un elemento de la lista
     const editarItem = (id) => {
       const index = items.findIndex((item) => item.id === id);
       if (index !== -1) {
         const nuevoNombre = prompt("Ingrese el nuevo nombre:");
-        const nuevoPrecio = parseFloat(prompt("Ingrese la edad:"));
+        const nuevoPrecio = parseFloat(prompt("Ingrese la nueva edad:"));
         const nuevaImagen = prompt("Ingrese el nombre de la nueva imagen (sin la extensión):");
         const nuevaRaza = prompt("Ingrese la nueva raza:");
         const nuevaDescripcion = prompt("Ingrese la nueva descripción:");
         const nuevaFechaEntrada = prompt("Ingrese la nueva fecha de entrada:");
         const nuevaEspecie = prompt("Ingrese la nueva especie:");
-        if (nuevoNombre && !isNaN(nuevoPrecio) && nuevaImagen && nuevaRaza && nuevaDescripcion && nuevaFechaEntrada && nuevaEspecie) {
+        const nuevoEstado = prompt("Ingrese el nuevo estado (Disponible/Reservado/Adoptado):");
+        if (nuevoNombre && !isNaN(nuevoPrecio) && nuevaImagen && nuevaRaza && nuevaDescripcion && nuevaFechaEntrada && nuevaEspecie && nuevoEstado) {
           items[index].nombre = nuevoNombre;
           items[index].precio = nuevoPrecio;
           items[index].imagen = nuevaImagen + ".jpg";
@@ -99,6 +104,7 @@ import LayoutPortal from "../layouts/layoutPortal.astro";
           items[index].descripcion = nuevaDescripcion;
           items[index].fecha_entrada = nuevaFechaEntrada;
           items[index].especie = nuevaEspecie;
+          items[index].estado = nuevoEstado;
           actualizarTabla();
         } else {
           alert("Por favor, ingrese datos válidos.");
@@ -121,6 +127,14 @@ import LayoutPortal from "../layouts/layoutPortal.astro";
           <td class="border px-4 py-2">${item.descripcion}</td>
           <td class="border px-4 py-2">${item.fecha_entrada}</td>
           <td class="border px-4 py-2">${item.especie}</td>
+          <td class="border px-4 py-2" id="estado-${item.id}">
+            <span>${item.estado}</span>
+            <select data-id="${item.id}" class="estado-select block w-full text-sm border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+              <option value="Disponible" ${item.estado === "Disponible" ? "selected" : ""}>Disponible</option>
+              <option value="Reservado" ${item.estado === "Reservado" ? "selected" : ""}>Reservado</option>
+              <option value="Adoptado" ${item.estado === "Adoptado" ? "selected" :                   ""}>Adoptado</option>
+            </select>
+          </td>
           <td class="border px-4 py-2">
             <button data-id="${item.id}" class="edit-btn bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Editar</button>
             <button data-id="${item.id}" class="delete-btn bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Eliminar</button>
@@ -128,23 +142,27 @@ import LayoutPortal from "../layouts/layoutPortal.astro";
         `;
         tbody.appendChild(row);
       });
-      // Adjuntar controladores de eventos
-      document.querySelectorAll('.edit-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
+
+  
+      // Controladores de eventos para cambiar estado mediante select
+      document.querySelectorAll('.estado-select').forEach(select => {
+        select.addEventListener('change', (e) => {
           const id = parseInt(e.target.dataset.id);
-          editarItem(id);
-        });
-      });
-      document.querySelectorAll('.delete-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          const id = parseInt(e.target.dataset.id);
-          eliminarItem(id);
+          const nuevoEstado = e.target.value;
+          editarEstadoSelect(id, nuevoEstado);
         });
       });
     };
 
-    // Renderizar la tabla inicial
-    actualizarTabla();
+    // Función para editar el estado de un elemento usando el select
+    const editarEstadoSelect = (id, nuevoEstado) => {
+      const index = items.findIndex((item) => item.id === id);
+      if (index !== -1) {
+        items[index].estado = nuevoEstado;
+        actualizarTabla();
+      }
+    };
+
 
     // Controlar el envío del formulario para agregar un nuevo elemento
     document.getElementById('formulario').addEventListener('submit', (e) => {
@@ -156,9 +174,10 @@ import LayoutPortal from "../layouts/layoutPortal.astro";
       const descripcion = document.getElementById('descripcion').value;
       const fechaEntrada = document.getElementById('fecha_entrada').value;
       const especie = document.getElementById('especie').value;
+      const estado = "Disponible"; // Estado inicial al agregar un nuevo animal
       if (nombre && !isNaN(precio) && imagen && raza && descripcion && fechaEntrada && especie) {
         const nuevoId = items.length + 1;
-        const nuevoItem = { id: nuevoId, nombre: nombre, precio: precio, imagen: imagen + ".jpg", raza: raza, descripcion: descripcion, fecha_entrada: fechaEntrada, especie: especie };
+        const nuevoItem = { id: nuevoId, nombre: nombre, precio: precio, imagen: imagen + ".jpg", raza: raza, descripcion: descripcion, fecha_entrada: fechaEntrada, especie: especie, estado: estado };
         items.push(nuevoItem);
         actualizarTabla();
         document.getElementById('nombre').value = "";
@@ -172,6 +191,10 @@ import LayoutPortal from "../layouts/layoutPortal.astro";
         alert("Por favor, ingrese datos válidos.");
       }
     });
+
+    // Renderizar la tabla inicial
+    actualizarTabla();
   </script>
 
 </LayoutPortal>
+

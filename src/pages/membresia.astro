@@ -1,0 +1,38 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const title = "Membresia Mensual";
+const price = 6;
+const currency = " Euros";
+const benefits = [
+  "Acceso total a informacion adicional",
+  "Informacion de campañas y eventos",
+  "Consejos acerca de su mascota"
+];
+const callToAction = "Suscribirse";
+---
+
+<astro-fragment>
+  <Layout title={title}>
+    <main class="mx-auto max-w-xl m-10 px-4 py-8 bg-gray-100 border border-gray-300 rounded-lg">
+      <header class="text-center mb-8">
+        <h1 class="text-4xl font-bold">{title}</h1>
+        <p class="text-2xl mt-2">{price}{currency} al mes</p>
+      </header>
+      
+      <section class="mb-8 text-center">
+        <h2 class="text-2xl font-bold mb-4">Beneficios de la Membresia</h2>
+        <ul class="list-disc list-inside">
+          {benefits.map(benefit => (
+            <li class="text-lg">{benefit}</li>
+          ))}
+        </ul>
+      </section>
+      
+      <section class="text-center">
+        <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded">{callToAction}</a>
+      </section>
+    </main>
+  </Layout>
+</astro-fragment>
+
